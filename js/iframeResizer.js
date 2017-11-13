@@ -1045,7 +1045,10 @@
 		define([],factory);
 	} else if (typeof module === 'object' && typeof module.exports === 'object') { //Node for browserfy
 		module.exports = factory();
-	} else {
+	} 
+
+        // Always add iFrameResize to the window object when available
+        if (window) {
 		window.iFrameResize = window.iFrameResize || factory();
 	}
 
